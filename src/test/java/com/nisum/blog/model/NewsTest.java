@@ -9,8 +9,8 @@ public class NewsTest {
 	@Test
 	public void checkInstance(){
 		News noticia;
-//		noticia = new News();
+		noticia = new News();
 		
-//		assertNotNull(noticia);
+		assertNotNull(noticia);
 	}	
 }

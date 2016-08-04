@@ -10,8 +10,9 @@ public class News {
 	private Date date;
 	private Author author;
 	private ArrayList<String> tags;
-	//private ArrayList<Comment> comments;
+	private ArrayList<Comment> comments;
 	
+	public News(){ }
 	
 	public News(int id, String title, String content, Author author) {
 		setId(id);
@@ -20,7 +21,7 @@ public class News {
 		setDate(date);
 		setAuthor(author);
 		setTags(new ArrayList<String>());
-		//setComments(new ArrayList<Comment>());
+		setComments(new ArrayList<Comment>());
 	}
 
 	public int getId() {
@@ -77,12 +78,12 @@ public class News {
 	}
 
 
-	/*public ArrayList<Comment> getComments() {
+	public ArrayList<Comment> getComments() {
 		return comments;
 	}
 
 	public void setComments(ArrayList<Comment> comments) {
 		this.comments = comments;
-	}*/
+	}
 
 }

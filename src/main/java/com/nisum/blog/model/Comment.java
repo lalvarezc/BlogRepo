@@ -12,12 +12,7 @@ public class Comment {
 	private String userUrl;
 	
 	public Comment(){
-		this.message=null;
-		this.userEmail=null;
-		this.userName=null;
-		this.id=0;
 		this.date=LocalDateTime.now();
-		this.userUrl=null;
 	}
 
 	public String getMessage() {

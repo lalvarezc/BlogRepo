@@ -2,7 +2,7 @@ package com.nisum.blog.persistance;
 
 public interface IAutor {
 
-    public create();
-    public edit();
-    public selectAll();
+    public void create();
+    public void edit();
+    public void selectAll();
 }

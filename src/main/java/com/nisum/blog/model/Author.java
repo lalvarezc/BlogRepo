@@ -32,6 +32,11 @@ public class Author{
 	public void setMail(String mail) {
 		this.mail = mail;
 	}
+
+	@Override
+	public String toString() {
+		return  name + "," + mail + "," + id;
+	}
 	
 	
 	

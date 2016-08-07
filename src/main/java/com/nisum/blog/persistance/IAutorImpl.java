@@ -3,10 +3,14 @@ package com.nisum.blog.persistance;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.nio.channels.FileChannel;
 import java.util.StringTokenizer;
 
 import com.nisum.blog.model.Author;
@@ -45,32 +49,46 @@ public class IAutorImpl implements IAutor {
 	@Override
 	public boolean update(Author autor) {
 		boolean actualizado = false;
-		File directorio = new File("\\src\\main\\resources\\");
+		try {
+		File directorio = new File("src/main/resources/");
 		File archivo = new File(directorio, "authors.txt");
+		File tempArchivo = File.createTempFile("authors", ".tmp", directorio);
+		tempArchivo.deleteOnExit();
 		if (directorio.exists()) {
-			try {
 			if (archivo.exists()) {
-				BufferedReader lector;
-					lector = new BufferedReader(new FileReader(archivo));
-					String identificador;
-					while ((identificador = lector.readLine()) != null) {
-						StringTokenizer token = new StringTokenizer(identificador, ",");
-						if (token.hasMoreTokens()) {
-							if (token.nextToken().equals(String.valueOf(autor.getId()))) {
-								identificador = identificador.replace(identificador, autor.toString());
-								actualizado = true;
-							} else {
-								identificador = lector.readLine();
-							}
+				BufferedReader lector = new BufferedReader(new FileReader(archivo));
+				PrintWriter pencil = new PrintWriter(new FileWriter(tempArchivo));
+					String line = lector.readLine();
+					String newText;
+					while (line != null) {
+						StringTokenizer token = new StringTokenizer(line, ",");
+						if (token.nextToken().equals(String.valueOf(autor.getId()))) {
+							newText = line.replace(line, autor.toString());
+							pencil.println(newText);
+							actualizado = true;
+							line = lector.readLine();
+						} else {
+							pencil.println(line);
+							line = lector.readLine();
 						}
 					}
+					pencil.close();
 					lector.close();
+					FileInputStream temp = new FileInputStream(tempArchivo);
+					FileOutputStream nuevo = new FileOutputStream(archivo);
+					FileChannel src = temp.getChannel();		
+					FileChannel dest = nuevo.getChannel();
+					dest.transferFrom(src, 0, src.size());
+					temp.close();
+					nuevo.close();
+					src.close();
+					dest.close();	
 				} 
-			} catch (FileNotFoundException e) {
-				e.printStackTrace();
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
+			} 
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
 		}
 		return actualizado;
 	}

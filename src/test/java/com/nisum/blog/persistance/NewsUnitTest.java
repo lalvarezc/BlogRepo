@@ -1,16 +1,15 @@
 package com.nisum.blog.persistance;
 
-import com.nisum.blog.model.Author;
-import com.nisum.blog.model.News;
-import com.sun.org.apache.bcel.internal.generic.NEW;
-import org.hamcrest.MatcherAssert;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
+
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
 
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
+import com.nisum.blog.model.Author;
+import com.nisum.blog.model.News;
 
 
 @RunWith(JUnit4.class)

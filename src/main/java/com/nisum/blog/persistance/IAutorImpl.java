@@ -53,6 +53,7 @@ public class IAutorImpl implements IAutor {
 					String line = lector.readLine();
 					while (line != null) {
 						buscarAutor(nuevoAutor, line, String.valueOf(id));
+						line = lector.readLine();
 					}
 					lector.close();
 				} catch (FileNotFoundException e) {
@@ -123,11 +124,14 @@ public class IAutorImpl implements IAutor {
 	
 	private Author buscarAutor(Author autor, String line, String valor){
 		StringTokenizer token = new StringTokenizer(line, ",");
-		if (token.nextToken().equals(valor));
-			autor.setId(Integer.parseInt(token.nextToken()));
+		
+		String primerValor = token.nextToken();
+		if (primerValor.equals(valor)){
+			
+			autor.setId(Integer.parseInt(primerValor));
 			autor.setName(token.nextToken());
 			autor.setMail(token.nextToken());
-			
+		}
 			
 		return autor;
 	}

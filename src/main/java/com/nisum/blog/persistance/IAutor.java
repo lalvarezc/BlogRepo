@@ -6,6 +6,6 @@ public interface IAutor {
 
     public void create(Author author);
     public void read();
-    public void update();
+    public boolean update(Author author);
     public void delete();
 }

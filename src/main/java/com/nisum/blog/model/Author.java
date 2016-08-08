@@ -35,7 +35,7 @@ public class Author{
 
 	@Override
 	public String toString() {
-		return  name + "," + mail + "," + id;
+		return  id + "," + name + "," + mail;
 	}
 	
 	

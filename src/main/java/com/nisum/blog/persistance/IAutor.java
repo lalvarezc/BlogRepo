@@ -5,7 +5,7 @@ import com.nisum.blog.model.Author;
 public interface IAutor {
 
     public void create(Author author);
-    public void read();
+    public Author read(int id);
     public boolean update(Author author);
     public void delete();
 }

@@ -40,11 +40,33 @@ public class IAutorImpl implements IAutor {
 
 	}
 
-	@Override
-	public void read() {
-		// TODO Auto-generated method stub
 
+	@Override
+	public Author read(int id) {
+		File directorio = new File("src/main/resources/");
+		File archivo = new File(directorio, "authors.txt");
+		Author nuevoAutor = new Author();
+		if (directorio.exists()) {
+			if (archivo.exists()) {
+				try {
+					BufferedReader lector = new BufferedReader(new FileReader(archivo));
+					String line = lector.readLine();
+					while (line != null) {
+						buscarAutor(nuevoAutor, line, String.valueOf(id));
+					}
+					lector.close();
+				} catch (FileNotFoundException e) {
+					e.printStackTrace();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+				
+			}
+
+		}
+		return nuevoAutor;
 	}
+	
 
 	@Override
 	public boolean update(Author autor) {
@@ -97,6 +119,17 @@ public class IAutorImpl implements IAutor {
 	public void delete() {
 		// TODO Auto-generated method stub
 
+	}
+	
+	private Author buscarAutor(Author autor, String line, String valor){
+		StringTokenizer token = new StringTokenizer(line, ",");
+		if (token.nextToken().equals(valor));
+			autor.setId(Integer.parseInt(token.nextToken()));
+			autor.setName(token.nextToken());
+			autor.setMail(token.nextToken());
+			
+			
+		return autor;
 	}
 
 }

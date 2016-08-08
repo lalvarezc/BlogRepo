@@ -19,7 +19,6 @@ public class IAutorImpl implements IAutor {
 
 	@Override
 	public void create(Author author) {
-
 		try {
 			String content = author.toString();
 			File file = new File("src/main/resources/authors.txt");

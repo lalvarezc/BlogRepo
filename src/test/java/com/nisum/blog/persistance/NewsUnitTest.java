@@ -72,12 +72,11 @@ public class NewsUnitTest {
 
         News miNoticiaAGuardar = new News();
         miNoticiaAGuardar.setAuthor(new Author());
-        miNoticiaAGuardar.setId(11232343);
         miNoticiaAGuardar.setTitle("mi título");
         miNoticiaAGuardar.setContent("mis comentarios");
 
         News miNoticia = listaDeNoticias.create(miNoticiaAGuardar);
-        News miNoticiaBorrada = listaDeNoticias.delete(11232343);
+        News miNoticiaBorrada = listaDeNoticias.delete(miNoticia.getId());
 
         assertNotNull(miNoticiaBorrada);
         assertTrue(listaDeNoticias.isEmpty());
@@ -103,13 +102,12 @@ public class NewsUnitTest {
         NewsImpl listaDeNoticias = new NewsImpl();
 
         News miNoticiaAGuardar = new News();
-        miNoticiaAGuardar.setAuthor(new Author());
-        miNoticiaAGuardar.setId(11232343);
+        miNoticiaAGuardar.setAuthor(new Author());      
         miNoticiaAGuardar.setTitle("mi título");
         miNoticiaAGuardar.setContent("mis comentarios");
 
         listaDeNoticias.create(miNoticiaAGuardar);
-        News miNoticia = listaDeNoticias.read(11232343);
+        News miNoticia = listaDeNoticias.read(miNoticiaAGuardar.getId());
 
         assertNotNull(miNoticia);
         assertTrue(!listaDeNoticias.isEmpty());

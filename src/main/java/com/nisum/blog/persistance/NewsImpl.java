@@ -2,10 +2,7 @@ package com.nisum.blog.persistance;
 
 
 import com.nisum.blog.model.Author;
-<<<<<<< refs/remotes/origin/master
 import com.nisum.blog.model.Comment;
-=======
->>>>>>> Autor tests
 import com.nisum.blog.model.News;
 
 import java.util.ArrayList;
@@ -66,19 +63,12 @@ public class NewsImpl {
     }
     
     private boolean authorValidation(Author author){
-<<<<<<< refs/remotes/origin/master
         if(author == null || author.getName().trim().equals("")){
             return false;
         } else {
             return true;
         }
-=======
-    	if(author == null || author.getName().trim().equals("")){
-    		return false;
-    	} else {
-    		return true;
-    	}
->>>>>>> Autor tests
+
     }
 
     public News delete(int i) throws RuntimeException{

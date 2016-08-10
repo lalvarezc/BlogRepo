@@ -7,5 +7,5 @@ public interface IAutor {
     public void create(Author author);
     public Author read(int id);
     public boolean update(Author author);
-    public void delete();
+    public void delete(String id);
 }

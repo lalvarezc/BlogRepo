@@ -18,9 +18,7 @@ public class NewsUnitTest {
     @Test
     public void checkIntance() throws Exception {
         NewsImpl noticia;
-
         noticia = new NewsImpl();
-
         Assert.assertNotNull(noticia);
     }
 

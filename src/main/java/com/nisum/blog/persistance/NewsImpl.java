@@ -1,6 +1,8 @@
 package com.nisum.blog.persistance;
 
 
+import com.nisum.blog.model.Author;
+import com.nisum.blog.model.Comment;
 import com.nisum.blog.model.News;
 
 import java.util.ArrayList;
@@ -26,13 +28,23 @@ public class NewsImpl {
     }
     
     public News create(News miNoticiaAGuardar) throws RuntimeException{
-        if (!nullValidation(miNoticiaAGuardar)) {
+        if (!nullValidation(miNoticiaAGuardar)||(!authorValidation(miNoticiaAGuardar.getAuthor()))) {
             throw new RuntimeException();
         }
         miNoticiaAGuardar.setId(newIdNews());
         misNoticias.add(miNoticiaAGuardar);
         return miNoticiaAGuardar;
     }
+    
+    /*antiguo
+    public News create(News miNoticiaAGuardar) throws RuntimeException{
+        if (!nullValidation(miNoticiaAGuardar)) {
+            throw new RuntimeException();
+        }
+        miNoticiaAGuardar.setId(newIdNews());
+        misNoticias.add(miNoticiaAGuardar);
+        return miNoticiaAGuardar;
+    }**/
     
     /**
      * Validates nulls 
@@ -48,6 +60,14 @@ public class NewsImpl {
     	}
     	
     	
+    }
+    
+    private boolean authorValidation(Author author){
+        if(author == null || author.getName().trim().equals("")){
+            return false;
+        } else {
+            return true;
+        }
     }
 
     public News delete(int i) throws RuntimeException{
@@ -71,4 +91,42 @@ public class NewsImpl {
         }
         throw new RuntimeException();
     }
+    
+    public ArrayList<News> readAll() {
+        return misNoticias;
+    }
+    
+    public Comment addComment(int id, Comment nuevoComentario) throws RuntimeException{
+        for (int j = 0; j<misNoticias.size(); j++) {
+            if ( misNoticias.get(j).getId() == id) {
+                ArrayList<Comment> comentarios = misNoticias.get(j).getComments();
+                comentarios.add(nuevoComentario);
+                misNoticias.get(j).setComments(comentarios);
+                return nuevoComentario;
+            }
+        }
+        throw new RuntimeException();
+    }
+    
+    public News searchNewsbyTag(int id, String tag) {
+        News miNoticia = null;
+        boolean found = false;
+        for(News news : misNoticias){
+            if(news.getId() == id){
+                for(String tags : news.getTags()){
+                    if(tag.equals(tags)){
+                        miNoticia = news;
+                        found = true;
+                        break;
+                    }
+                }
+                if(found){
+                    break;
+                }
+            }
+        }
+        return miNoticia;
+       
+    }
+    
 }

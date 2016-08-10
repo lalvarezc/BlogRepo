@@ -12,7 +12,10 @@ public class News {
 	private ArrayList<String> tags;
 	private ArrayList<Comment> comments;
 	
-	public News(){ }
+	public News(){ 
+		setComments(new ArrayList<Comment>());
+		setTags(new ArrayList<String>());
+	}
 	
 	public News(int id, String title, String content, Author author) {
 		setId(id);

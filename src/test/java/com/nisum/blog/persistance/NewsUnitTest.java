@@ -26,11 +26,15 @@ public class NewsUnitTest {
         Assert.assertNotNull(noticia);
     }
 
-    @Test
+    @Test 
     public void createNew() throws Exception {
         NewsImpl noticia = new NewsImpl();
         Author autor = new Author();
+<<<<<<< refs/remotes/origin/master
         autor.setName("Marco Antonio");
+=======
+    	autor.setName("juan");
+>>>>>>> Autor tests
 
         News miNoticiaAGuardar = new News();
         miNoticiaAGuardar.setAuthor(autor);
@@ -42,11 +46,15 @@ public class NewsUnitTest {
         Assert.assertNotNull(miNoticia);
     }
 
-    @Test
+    @Test 
     public void checkFields() throws Exception {
         NewsImpl noticia = new NewsImpl();
         Author autor = new Author();
+<<<<<<< refs/remotes/origin/master
         autor.setName("Marco Antonio");
+=======
+    	autor.setName("juan");
+>>>>>>> Autor tests
 
         News miNoticiaAGuardar = new News();
         miNoticiaAGuardar.setAuthor(autor);
@@ -72,12 +80,17 @@ public class NewsUnitTest {
         News miNoticia = noticia.create(miNoticiaAGuardar);
     }
 
-    @Test
+    @Test 
     public void checkDelete() throws Exception {
         NewsImpl listaDeNoticias = new NewsImpl();
         Author autor = new Author();
+<<<<<<< refs/remotes/origin/master
         autor.setName("Marco Antonio");
 
+=======
+    	autor.setName("juan");
+    	
+>>>>>>> Autor tests
         News miNoticiaAGuardar = new News();
         miNoticiaAGuardar.setAuthor(autor);
         miNoticiaAGuardar.setTitle("mi título");
@@ -105,13 +118,18 @@ public class NewsUnitTest {
     }
 
 
-    @Test
+    @Test 
     public void checkRead() throws Exception {
         NewsImpl listaDeNoticias = new NewsImpl();
         Author autor = new Author();
+<<<<<<< refs/remotes/origin/master
         autor.setName("Marco Antonio");
         
         
+=======
+    	autor.setName("juan");
+
+>>>>>>> Autor tests
         News miNoticiaAGuardar = new News();
         miNoticiaAGuardar.setAuthor(autor);      
         miNoticiaAGuardar.setTitle("mi título");
@@ -127,9 +145,11 @@ public class NewsUnitTest {
     @Test (expected = RuntimeException.class)
     public void checkRead2() throws Exception {
         NewsImpl listaDeNoticias = new NewsImpl();
+        Author autor = new Author();
+    	autor.setName("juan");
 
         News miNoticiaAGuardar = new News();
-        miNoticiaAGuardar.setAuthor(new Author());
+        miNoticiaAGuardar.setAuthor(autor);
         miNoticiaAGuardar.setId(11232343);
         miNoticiaAGuardar.setTitle("mi título");
         miNoticiaAGuardar.setContent("mis comentarios");
@@ -138,6 +158,7 @@ public class NewsUnitTest {
         News miNoticia = listaDeNoticias.read(11233);
     }
     
+<<<<<<< refs/remotes/origin/master
     @Test
     public void checkReadAllCreate() {
         NewsImpl listaDeNoticias = new NewsImpl();
@@ -238,5 +259,17 @@ public class NewsUnitTest {
         listaDeNoticias.create(noticia);
         News returnNews = listaDeNoticias.searchNewsbyTag(noticia.getId(), "Deporte");
         assertNotNull(returnNews);
+=======
+    @Test 
+    public void checkAuthorNotNull() throws Exception{
+    	News miNoticia = new News();
+    	Author autor = new Author();
+    	autor.setName("juan");
+    	
+    	
+    	miNoticia.setContent("mi contenido");
+    	miNoticia.setTitle("Esto es un titulo");
+    	miNoticia.setAuthor(autor);
+>>>>>>> Autor tests
     }
 }

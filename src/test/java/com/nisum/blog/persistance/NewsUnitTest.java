@@ -19,7 +19,7 @@ public class NewsUnitTest {
 
     @Test
     public void checkIntance() throws Exception {
-        NewsImpl noticia;
+        INews noticia;
 
         noticia = new NewsImpl();
 
@@ -28,7 +28,7 @@ public class NewsUnitTest {
 
     @Test 
     public void createNew() throws Exception {
-        NewsImpl noticia = new NewsImpl();
+        INews noticia = new NewsImpl();
         Author autor = new Author();
         autor.setName("Marco Antonio");
     	autor.setName("juan");
@@ -45,7 +45,7 @@ public class NewsUnitTest {
 
     @Test 
     public void checkFields() throws Exception {
-        NewsImpl noticia = new NewsImpl();
+        INews noticia = new NewsImpl();
         Author autor = new Author();
         autor.setName("Marco Antonio");
     	autor.setName("juan");
@@ -65,7 +65,7 @@ public class NewsUnitTest {
 
     @Test (expected = RuntimeException.class)
     public void checkCaminoInfeliz() throws Exception {
-        NewsImpl noticia = new NewsImpl();
+        INews noticia = new NewsImpl();
 
         News miNoticiaAGuardar = new News();
         miNoticiaAGuardar.setTitle("mi título");
@@ -76,7 +76,7 @@ public class NewsUnitTest {
 
     @Test 
     public void checkDelete() throws Exception {
-        NewsImpl listaDeNoticias = new NewsImpl();
+        INews listaDeNoticias = new NewsImpl();
         Author autor = new Author();
         autor.setName("Marco Antonio");
 
@@ -96,7 +96,7 @@ public class NewsUnitTest {
 
     @Test (expected = RuntimeException.class)
     public void checkDelete2() throws Exception {
-        NewsImpl listaDeNoticias = new NewsImpl();
+        INews listaDeNoticias = new NewsImpl();
 
         News miNoticiaAGuardar = new News();
         miNoticiaAGuardar.setAuthor(new Author());
@@ -111,7 +111,7 @@ public class NewsUnitTest {
 
     @Test 
     public void checkRead() throws Exception {
-        NewsImpl listaDeNoticias = new NewsImpl();
+        INews listaDeNoticias = new NewsImpl();
         Author autor = new Author();
         autor.setName("Marco Antonio");
         
@@ -132,7 +132,7 @@ public class NewsUnitTest {
 
     @Test (expected = RuntimeException.class)
     public void checkRead2() throws Exception {
-        NewsImpl listaDeNoticias = new NewsImpl();
+        INews listaDeNoticias = new NewsImpl();
         Author autor = new Author();
     	autor.setName("juan");
 
@@ -148,7 +148,7 @@ public class NewsUnitTest {
     
     @Test
     public void checkReadAllCreate() {
-        NewsImpl listaDeNoticias = new NewsImpl();
+        INews listaDeNoticias = new NewsImpl();
         Author autor = new Author();
         autor.setName("Marco Antonio");
  
@@ -166,7 +166,7 @@ public class NewsUnitTest {
  
     @Test
     public void checkReadAllDelete() {
-        NewsImpl listaDeNoticias = new NewsImpl();
+        INews listaDeNoticias = new NewsImpl();
         Author autor = new Author();
         autor.setName("Marco Antonio");
  
@@ -185,7 +185,7 @@ public class NewsUnitTest {
  
     @Test
     public void checkReadAllNull() {
-        NewsImpl listaDeNoticias = new NewsImpl();
+        INews listaDeNoticias = new NewsImpl();
  
         ArrayList<News> listado = listaDeNoticias.readAll();
  
@@ -207,7 +207,7 @@ public class NewsUnitTest {
     
     @Test
     public void checkAddComment() throws Exception {
-        NewsImpl listaDeNoticias = new NewsImpl();
+        INews listaDeNoticias = new NewsImpl();
  
         News miNoticiaAGuardar = new News();
         Author autor = new Author();
@@ -225,14 +225,14 @@ public class NewsUnitTest {
    
     @Test (expected = RuntimeException.class)
     public void checkAddComment2() throws Exception {
-        NewsImpl listaDeNoticias = new NewsImpl();
+        INews listaDeNoticias = new NewsImpl();
         Comment nuevoComentario = new Comment();
         listaDeNoticias.addComment(1234,nuevoComentario);
     }
     
     @Test
     public void checkAddTag(){
-        NewsImpl listaDeNoticias = new NewsImpl();
+        INews listaDeNoticias = new NewsImpl();
        
         News noticia = new News();
         Author autor = new Author();

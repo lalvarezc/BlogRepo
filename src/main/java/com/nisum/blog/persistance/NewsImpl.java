@@ -8,7 +8,10 @@ import com.nisum.blog.model.News;
 import java.util.ArrayList;
 import java.util.concurrent.atomic.AtomicInteger;
 
-public class NewsImpl {
+import org.springframework.stereotype.Repository;
+
+@Repository
+public class NewsImpl implements INews {
 	
 	private final AtomicInteger counter = new AtomicInteger();
 
@@ -27,7 +30,11 @@ public class NewsImpl {
     	return counter.getAndIncrement();
     }
     
-    public News create(News miNoticiaAGuardar) throws RuntimeException{
+    /* (non-Javadoc)
+	 * @see com.nisum.blog.persistance.INews#create(com.nisum.blog.model.News)
+	 */
+    @Override
+	public News create(News miNoticiaAGuardar) throws RuntimeException{
         if (!nullValidation(miNoticiaAGuardar)||(!authorValidation(miNoticiaAGuardar.getAuthor()))) {
             throw new RuntimeException();
         }
@@ -71,7 +78,11 @@ public class NewsImpl {
 
     }
 
-    public News delete(int i) throws RuntimeException{
+    /* (non-Javadoc)
+	 * @see com.nisum.blog.persistance.INews#delete(int)
+	 */
+    @Override
+	public News delete(int i) throws RuntimeException{
         for (int j = 0; j<misNoticias.size(); j++) {
             if ( misNoticias.get(j).getId() == i) {
                 return misNoticias.remove(j);
@@ -80,11 +91,19 @@ public class NewsImpl {
         throw new RuntimeException();
     }
 
-    public boolean isEmpty() {
+    /* (non-Javadoc)
+	 * @see com.nisum.blog.persistance.INews#isEmpty()
+	 */
+    @Override
+	public boolean isEmpty() {
         return misNoticias.isEmpty();
     }
 
-    public News read(int i) throws RuntimeException{
+    /* (non-Javadoc)
+	 * @see com.nisum.blog.persistance.INews#read(int)
+	 */
+    @Override
+	public News read(int i) throws RuntimeException{
         for (int j = 0; j<misNoticias.size(); j++) {
             if ( misNoticias.get(j).getId() == i) {
                 return misNoticias.get(j);
@@ -93,11 +112,19 @@ public class NewsImpl {
         throw new RuntimeException();
     }
     
-    public ArrayList<News> readAll() {
+    /* (non-Javadoc)
+	 * @see com.nisum.blog.persistance.INews#readAll()
+	 */
+    @Override
+	public ArrayList<News> readAll() {
         return misNoticias;
     }
     
-    public Comment addComment(int id, Comment nuevoComentario) throws RuntimeException{
+    /* (non-Javadoc)
+	 * @see com.nisum.blog.persistance.INews#addComment(int, com.nisum.blog.model.Comment)
+	 */
+    @Override
+	public Comment addComment(int id, Comment nuevoComentario) throws RuntimeException{
         for (int j = 0; j<misNoticias.size(); j++) {
             if ( misNoticias.get(j).getId() == id) {
                 ArrayList<Comment> comentarios = misNoticias.get(j).getComments();
@@ -109,7 +136,11 @@ public class NewsImpl {
         throw new RuntimeException();
     }
     
-    public News searchNewsbyTag(int id, String tag) {
+    /* (non-Javadoc)
+	 * @see com.nisum.blog.persistance.INews#searchNewsbyTag(int, java.lang.String)
+	 */
+    @Override
+	public News searchNewsbyTag(int id, String tag) {
         News miNoticia = null;
         boolean found = false;
         for(News news : misNoticias){

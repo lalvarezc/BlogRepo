@@ -15,7 +15,7 @@ import com.nisum.blog.model.News;
 
 
 @RunWith(JUnit4.class)
-public class NewsUnitTest {
+public class NewsRepositoryUnitTest {
 
     @Test
     public void checkIntance() throws Exception {

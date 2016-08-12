@@ -11,13 +11,13 @@ import java.util.concurrent.atomic.AtomicInteger;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public class NewsImpl implements INews {
+public class NewsRepositoryImpl implements INewsRepository {
 	
 	private final AtomicInteger counter = new AtomicInteger();
 
     ArrayList <News> misNoticias;
 
-    public NewsImpl() {
+    public NewsRepositoryImpl() {
         misNoticias = new ArrayList<>();
     }
 

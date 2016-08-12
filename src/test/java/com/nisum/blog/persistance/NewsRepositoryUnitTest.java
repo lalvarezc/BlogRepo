@@ -15,20 +15,20 @@ import com.nisum.blog.model.News;
 
 
 @RunWith(JUnit4.class)
-public class NewsUnitTest {
+public class NewsRepositoryUnitTest {
 
     @Test
     public void checkIntance() throws Exception {
-        INews noticia;
+        INewsRepository noticia;
 
-        noticia = new NewsImpl();
+        noticia = new NewsRepositoryImpl();
 
         Assert.assertNotNull(noticia);
     }
 
     @Test 
     public void createNew() throws Exception {
-        INews noticia = new NewsImpl();
+        INewsRepository noticia = new NewsRepositoryImpl();
         Author autor = new Author();
         autor.setName("Marco Antonio");
     	autor.setName("juan");
@@ -45,7 +45,7 @@ public class NewsUnitTest {
 
     @Test 
     public void checkFields() throws Exception {
-        INews noticia = new NewsImpl();
+        INewsRepository noticia = new NewsRepositoryImpl();
         Author autor = new Author();
         autor.setName("Marco Antonio");
     	autor.setName("juan");
@@ -65,7 +65,7 @@ public class NewsUnitTest {
 
     @Test (expected = RuntimeException.class)
     public void checkCaminoInfeliz() throws Exception {
-        INews noticia = new NewsImpl();
+        INewsRepository noticia = new NewsRepositoryImpl();
 
         News miNoticiaAGuardar = new News();
         miNoticiaAGuardar.setTitle("mi título");
@@ -76,7 +76,7 @@ public class NewsUnitTest {
 
     @Test 
     public void checkDelete() throws Exception {
-        INews listaDeNoticias = new NewsImpl();
+        INewsRepository listaDeNoticias = new NewsRepositoryImpl();
         Author autor = new Author();
         autor.setName("Marco Antonio");
 
@@ -96,7 +96,7 @@ public class NewsUnitTest {
 
     @Test (expected = RuntimeException.class)
     public void checkDelete2() throws Exception {
-        INews listaDeNoticias = new NewsImpl();
+        INewsRepository listaDeNoticias = new NewsRepositoryImpl();
 
         News miNoticiaAGuardar = new News();
         miNoticiaAGuardar.setAuthor(new Author());
@@ -111,7 +111,7 @@ public class NewsUnitTest {
 
     @Test 
     public void checkRead() throws Exception {
-        INews listaDeNoticias = new NewsImpl();
+        INewsRepository listaDeNoticias = new NewsRepositoryImpl();
         Author autor = new Author();
         autor.setName("Marco Antonio");
         
@@ -132,7 +132,7 @@ public class NewsUnitTest {
 
     @Test (expected = RuntimeException.class)
     public void checkRead2() throws Exception {
-        INews listaDeNoticias = new NewsImpl();
+        INewsRepository listaDeNoticias = new NewsRepositoryImpl();
         Author autor = new Author();
     	autor.setName("juan");
 
@@ -148,7 +148,7 @@ public class NewsUnitTest {
     
     @Test
     public void checkReadAllCreate() {
-        INews listaDeNoticias = new NewsImpl();
+        INewsRepository listaDeNoticias = new NewsRepositoryImpl();
         Author autor = new Author();
         autor.setName("Marco Antonio");
  
@@ -166,7 +166,7 @@ public class NewsUnitTest {
  
     @Test
     public void checkReadAllDelete() {
-        INews listaDeNoticias = new NewsImpl();
+        INewsRepository listaDeNoticias = new NewsRepositoryImpl();
         Author autor = new Author();
         autor.setName("Marco Antonio");
  
@@ -185,7 +185,7 @@ public class NewsUnitTest {
  
     @Test
     public void checkReadAllNull() {
-        INews listaDeNoticias = new NewsImpl();
+        INewsRepository listaDeNoticias = new NewsRepositoryImpl();
  
         ArrayList<News> listado = listaDeNoticias.readAll();
  
@@ -207,7 +207,7 @@ public class NewsUnitTest {
     
     @Test
     public void checkAddComment() throws Exception {
-        INews listaDeNoticias = new NewsImpl();
+        INewsRepository listaDeNoticias = new NewsRepositoryImpl();
  
         News miNoticiaAGuardar = new News();
         Author autor = new Author();
@@ -225,14 +225,14 @@ public class NewsUnitTest {
    
     @Test (expected = RuntimeException.class)
     public void checkAddComment2() throws Exception {
-        INews listaDeNoticias = new NewsImpl();
+        INewsRepository listaDeNoticias = new NewsRepositoryImpl();
         Comment nuevoComentario = new Comment();
         listaDeNoticias.addComment(1234,nuevoComentario);
     }
     
     @Test
     public void checkAddTag(){
-        INews listaDeNoticias = new NewsImpl();
+        INewsRepository listaDeNoticias = new NewsRepositoryImpl();
        
         News noticia = new News();
         Author autor = new Author();

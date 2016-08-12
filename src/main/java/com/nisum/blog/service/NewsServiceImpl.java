@@ -7,14 +7,14 @@ import org.springframework.stereotype.Service;
 
 import com.nisum.blog.model.Comment;
 import com.nisum.blog.model.News;
-import com.nisum.blog.persistance.INews;
+import com.nisum.blog.persistance.INewsRepository;
 
 @Service
 public class NewsServiceImpl implements INewsService {
 
 	
 	@Autowired
-	private INews newsPersistence;
+	private INewsRepository newsPersistence;
 	
 	@Override
 	public News create(News miNoticiaAGuardar) throws RuntimeException {

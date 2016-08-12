@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import com.nisum.blog.model.Comment;
 import com.nisum.blog.model.News;
 
-public interface INews {
+public interface INewsRepository {
 
 	News create(News miNoticiaAGuardar) throws RuntimeException;
 

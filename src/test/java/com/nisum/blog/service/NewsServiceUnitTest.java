@@ -18,13 +18,13 @@ import org.mockito.runners.MockitoJUnitRunner;
 import com.nisum.blog.model.Author;
 import com.nisum.blog.model.Comment;
 import com.nisum.blog.model.News;
-import com.nisum.blog.persistance.INews;
+import com.nisum.blog.persistance.INewsRepository;
 
 @RunWith(MockitoJUnitRunner.class)
 public class NewsServiceUnitTest {
 
 	@Mock
-	private INews  newsPersistence;
+	private INewsRepository  newsPersistence;
 	
 	@InjectMocks
 	private NewsServiceImpl  newsService;

@@ -7,14 +7,14 @@ import org.springframework.stereotype.Service;
 
 import com.nisum.blog.model.Comment;
 import com.nisum.blog.model.News;
-import com.nisum.blog.persistance.INews;
+import com.nisum.blog.persistance.INewsRepository;
 
 @Service
 public class NewsServiceImpl implements INewsService {
 
 	
 	@Autowired
-	private INews newsPersistence;
+	private INewsRepository newsPersistence;
 	
 	@Override
 	public News create(News miNoticiaAGuardar) throws RuntimeException {
@@ -31,7 +31,7 @@ public class NewsServiceImpl implements INewsService {
 	@Override
 	public boolean isEmpty() {
 		// TODO Auto-generated method stub
-		return false;
+		return newsPersistence.isEmpty();
 	}
 
 	@Override
@@ -52,7 +52,7 @@ public class NewsServiceImpl implements INewsService {
 	@Override
 	public News searchNewsbyTag(int id, String tag) {
 		// TODO Auto-generated metuhod stub
-		return null;
+		return newsPersistence.searchNewsbyTag(id, tag);
 	}
 
 }

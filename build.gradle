@@ -44,6 +44,7 @@ dependencies {
     
     compile("org.springframework.boot:spring-boot-starter-web")
     testCompile "org.mockito:mockito-core:1.+" 
+    compile ('com.jayway.restassured:spring-mock-mvc:2.6.0')
 }
 
 

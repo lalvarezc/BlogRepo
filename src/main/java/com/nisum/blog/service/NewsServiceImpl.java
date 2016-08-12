@@ -18,9 +18,7 @@ public class NewsServiceImpl implements INewsService {
 	
 	@Override
 	public News create(News miNoticiaAGuardar) throws RuntimeException {
-		
 		return newsPersistence.create(miNoticiaAGuardar);
-		
 	}
 
 	@Override

@@ -10,8 +10,10 @@ public class Comment {
 	private int id;
 	private LocalDateTime date;
 	private String userUrl;
-	
-	public Comment(){
+
+	public Comment(){}
+
+	public Comment(int i){
 		this.date=LocalDateTime.now();
 	}
 

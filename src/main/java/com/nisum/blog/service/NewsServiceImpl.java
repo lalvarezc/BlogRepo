@@ -30,7 +30,6 @@ public class NewsServiceImpl implements INewsService {
 
 	@Override
 	public boolean isEmpty() {
-		// TODO Auto-generated method stub
 		return newsPersistence.isEmpty();
 	}
 
@@ -51,7 +50,6 @@ public class NewsServiceImpl implements INewsService {
 
 	@Override
 	public News searchNewsbyTag(int id, String tag) {
-		// TODO Auto-generated metuhod stub
 		return newsPersistence.searchNewsbyTag(id, tag);
 	}
 

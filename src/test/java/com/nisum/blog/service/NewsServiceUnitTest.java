@@ -102,8 +102,6 @@ public class NewsServiceUnitTest {
         when(newsPersistence.delete(anyInt())).thenThrow(new RuntimeException());
        
         News noticiaBorrada= newsService.delete(noticia.getId());
-       
-       
     }
 	
     @Test
@@ -122,10 +120,8 @@ public class NewsServiceUnitTest {
    
     @Test (expected = RuntimeException.class)
     public void checkAddComment2(){
-       
- 
+
         when(newsPersistence.addComment(anyInt(), null)).thenThrow(new RuntimeException());
-   
- 
+
     }
 }

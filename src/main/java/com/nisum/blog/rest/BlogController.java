@@ -31,8 +31,8 @@ public class BlogController {
         return noticia;
     }
 
-    @RequestMapping(value = "/get/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public News getNews(@PathVariable int id) {
+    @RequestMapping(value = "/read/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    public News read(@PathVariable int id) {
         System.out.println("get.........");
         News noticia = newsService.read(id);
         return noticia;
@@ -45,7 +45,7 @@ public class BlogController {
         return lista;
     }
 
-    @RequestMapping(value = "/addComent/{id}", method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(value = "/addComment/{id}", method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_VALUE)
     public Comment addComment(@PathVariable int id, @RequestBody Comment comment) {
         System.out.println("add comment.........");
         Comment comment1 = newsService.addComment(id,comment);

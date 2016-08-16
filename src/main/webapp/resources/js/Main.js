@@ -15,6 +15,7 @@ App.Main=function(){
          $("#modal_see_post_id").modal('show');
     });
 
+
   };
   
   

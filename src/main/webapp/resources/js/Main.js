@@ -73,11 +73,7 @@ App.Main=function(){
     init:function(){
     	__init();
     },
-    
-    createNews:function(){
-    	__createNews();
-    },
-    
+
   };
 
 };

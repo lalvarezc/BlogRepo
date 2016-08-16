@@ -67,7 +67,7 @@ public class BlogControllerTest {
     }
 
     @Test
-    public void checkGet() throws Exception {
+    public void checkRead() throws Exception {
         News noticiaObtenida = new News();
         noticiaObtenida.setId(1);
         noticiaObtenida.setContent("pokemon go!");
@@ -78,7 +78,7 @@ public class BlogControllerTest {
         given().
                 contentType(ContentType.JSON).
                 when().
-                get("/api/get/{id}", 1).
+                get("/api/read/{id}", 1).
                 then().
                 statusCode(HttpStatus.OK.value());
     }
@@ -111,7 +111,7 @@ public class BlogControllerTest {
                 contentType(ContentType.JSON).
                 body(miComentario).
         when().
-                put("/api/addComent/{id}",1).
+                put("/api/addComment/{id}",1).
         then().
                 statusCode(HttpStatus.OK.value());
     }

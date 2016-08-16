@@ -35,7 +35,7 @@ public class NewsRepositoryUnitTest {
 
         News miNoticiaAGuardar = new News();
         miNoticiaAGuardar.setAuthor(autor);
-        miNoticiaAGuardar.setTitle("mi título");
+        miNoticiaAGuardar.setTitle("mi titulo");
         miNoticiaAGuardar.setContent("mis comentarios");
 
         News miNoticia = noticia.create(miNoticiaAGuardar);
@@ -52,7 +52,7 @@ public class NewsRepositoryUnitTest {
 
         News miNoticiaAGuardar = new News();
         miNoticiaAGuardar.setAuthor(autor);
-        miNoticiaAGuardar.setTitle("mi título");
+        miNoticiaAGuardar.setTitle("mi titulo");
         miNoticiaAGuardar.setContent("mis comentarios");
 
         News miNoticia = noticia.create(miNoticiaAGuardar);
@@ -68,7 +68,7 @@ public class NewsRepositoryUnitTest {
         INewsRepository noticia = new NewsRepositoryImpl();
 
         News miNoticiaAGuardar = new News();
-        miNoticiaAGuardar.setTitle("mi título");
+        miNoticiaAGuardar.setTitle("mi titulo");
         miNoticiaAGuardar.setContent("mis comentarios");
 
         News miNoticia = noticia.create(miNoticiaAGuardar);
@@ -84,7 +84,7 @@ public class NewsRepositoryUnitTest {
     	
         News miNoticiaAGuardar = new News();
         miNoticiaAGuardar.setAuthor(autor);
-        miNoticiaAGuardar.setTitle("mi título");
+        miNoticiaAGuardar.setTitle("mi titulo");
         miNoticiaAGuardar.setContent("mis comentarios");
 
         News miNoticia = listaDeNoticias.create(miNoticiaAGuardar);
@@ -101,7 +101,7 @@ public class NewsRepositoryUnitTest {
         News miNoticiaAGuardar = new News();
         miNoticiaAGuardar.setAuthor(new Author());
         miNoticiaAGuardar.setId(11232343);
-        miNoticiaAGuardar.setTitle("mi título");
+        miNoticiaAGuardar.setTitle("mi titulo");
         miNoticiaAGuardar.setContent("mis comentarios");
 
         News miNoticia = listaDeNoticias.create(miNoticiaAGuardar);
@@ -120,7 +120,7 @@ public class NewsRepositoryUnitTest {
 
         News miNoticiaAGuardar = new News();
         miNoticiaAGuardar.setAuthor(autor);      
-        miNoticiaAGuardar.setTitle("mi título");
+        miNoticiaAGuardar.setTitle("mi titulo");
         miNoticiaAGuardar.setContent("mis comentarios");
 
         listaDeNoticias.create(miNoticiaAGuardar);
@@ -139,7 +139,7 @@ public class NewsRepositoryUnitTest {
         News miNoticiaAGuardar = new News();
         miNoticiaAGuardar.setAuthor(autor);
         miNoticiaAGuardar.setId(11232343);
-        miNoticiaAGuardar.setTitle("mi título");
+        miNoticiaAGuardar.setTitle("mi titulo");
         miNoticiaAGuardar.setContent("mis comentarios");
 
         listaDeNoticias.create(miNoticiaAGuardar);
@@ -154,7 +154,7 @@ public class NewsRepositoryUnitTest {
  
         News miNoticiaAGuardar = new News();
         miNoticiaAGuardar.setAuthor(autor);
-        miNoticiaAGuardar.setTitle("mi título");
+        miNoticiaAGuardar.setTitle("mi titulo");
         miNoticiaAGuardar.setContent("mis comentarios");
  
         listaDeNoticias.create(miNoticiaAGuardar);
@@ -172,7 +172,7 @@ public class NewsRepositoryUnitTest {
  
         News miNoticiaAGuardar = new News();
         miNoticiaAGuardar.setAuthor(autor);
-        miNoticiaAGuardar.setTitle("mi título");
+        miNoticiaAGuardar.setTitle("mi titulo");
         miNoticiaAGuardar.setContent("mis comentarios");
  
         listaDeNoticias.create(miNoticiaAGuardar);
@@ -213,7 +213,7 @@ public class NewsRepositoryUnitTest {
         Author autor = new Author();
         autor.setName("juan");
         miNoticiaAGuardar.setAuthor(autor);
-        miNoticiaAGuardar.setTitle("mi t�tulo");
+        miNoticiaAGuardar.setTitle("mi titulo");
         miNoticiaAGuardar.setContent("mis comentarios");
         miNoticiaAGuardar = listaDeNoticias.create(miNoticiaAGuardar);
        

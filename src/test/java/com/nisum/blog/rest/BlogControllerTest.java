@@ -2,6 +2,7 @@ package com.nisum.blog.rest;
 
 import com.jayway.restassured.http.ContentType;
 import com.jayway.restassured.module.mockmvc.RestAssuredMockMvc;
+import com.nisum.blog.model.Author;
 import com.nisum.blog.model.Comment;
 import com.nisum.blog.model.News;
 import com.nisum.blog.service.INewsService;
@@ -39,7 +40,7 @@ public class BlogControllerTest {
         String titulo = "titulo";
         noticia.setTitle(titulo);
 
-        when(newsService.create(new News())).thenReturn(noticia);
+        when(newsService.create(noticia)).thenReturn(noticia);
 
         given().
                 contentType(ContentType.JSON).

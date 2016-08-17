@@ -15,7 +15,6 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 
-import com.nisum.blog.model.Author;
 import com.nisum.blog.model.Comment;
 import com.nisum.blog.model.News;
 import com.nisum.blog.persistance.INewsRepository;

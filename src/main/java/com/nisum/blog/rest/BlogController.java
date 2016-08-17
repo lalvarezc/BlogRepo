@@ -20,7 +20,7 @@ public class BlogController {
     @RequestMapping(value = "/create", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
     public News create(@RequestBody News news) {
         News noticia = newsService.create(news);
-        System.out.println("created object with title: "+ noticia.getId());
+        System.out.println("created object with title: "+ noticia);
         return noticia;
     }
 

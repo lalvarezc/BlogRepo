@@ -7,5 +7,3 @@ modalCrateNew.init();
 
 var modalShowNew=App.ModalShowNew();
 modalShowNew.init();
-
-var loadData = App.LoadData().createNews();

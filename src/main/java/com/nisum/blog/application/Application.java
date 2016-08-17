@@ -1,5 +1,10 @@
 package com.nisum.blog.application;
  
+import com.nisum.blog.model.Author;
+import com.nisum.blog.model.News;
+import com.nisum.blog.persistance.INewsRepository;
+import com.nisum.blog.persistance.NewsRepositoryImpl;
+import com.nisum.blog.rest.BlogController;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -17,7 +22,9 @@ import org.thymeleaf.templateresolver.TemplateResolver;
 public class Application {
  
     public static void main(String[] args) {
-        SpringApplication.run(Application.class, args);
+
+       SpringApplication.run(Application.class, args);
+
     }
     
     @Bean

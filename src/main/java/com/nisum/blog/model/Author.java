@@ -8,7 +8,13 @@ public class Author{
 	private int id;
 	
 	public Author(){}
-	
+
+	public Author(String name, String mail, int id) {
+		this.name = name;
+		this.mail = mail;
+		this.id = id;
+	}
+
 	public String getName(){
 		return name;
 	}

@@ -97,6 +97,9 @@ App.ModalShowNew=function(){
      
       if(message == "" || userName == "" || userEmail == "") {
           $("#comment-alert").removeClass("hidden");
+          $("#comment-alert").fadeTo(2000, 500).slideUp(500, function(){
+              $("#comment-alert").slideUp(500);
+          });
           return false;
       } else {
           return true;

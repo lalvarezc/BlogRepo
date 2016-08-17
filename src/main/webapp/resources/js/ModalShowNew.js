@@ -1,29 +1,12 @@
 "use strict";
 App.ModalShowNew=function(){
 	
-	var __init=function(){
-		
-		$(document).on("ModalCreateNew_NewCreated", function () {
-			__limpiar();
-			 __readAll();
-	   });
-	
-	}
-	 /**public**/
-	  return{
-		 
-	    init:function(){
-	    	__init();
-	    }
-	       
-	  };
-	
-   
     var __init=function(){
        
         $(document).on("Main_showNews", function (evt) {
-             console.info(evt);
-             __showNews(evt.message);
+        	__limpiarModal();
+			 console.info(evt);
+			 __showNews(evt.message);
              
             $("#submit-comment-btn").click(function(){
                 __addComment(evt.message);
@@ -65,8 +48,6 @@ App.ModalShowNew=function(){
               for (var i = 0; i < response.comments.length; i++) {
                   $("#div-comments-id").append("<p>"+response.comments[i].userName +": <br>" + response.comments[i].message+"</p>");
               }
-          } else {
-              $("#div-comments-id").append("<p>There are no comments yet.</p>");
           }
       });
   }
@@ -84,9 +65,15 @@ App.ModalShowNew=function(){
           promise.then(function(response){ 
               console.info(response);
               alert("Comment published succesfully");
+              $("#div-comments-id").append("<p>"+response.userName +": <br>" + response.message+"</p>");
+              
+    		  $.event.trigger({
+    		      type: "NewCommentAdded",
+    		      message: data,
+    		      time: new Date()
+    		    });
           });
       }
-     
   }
  
   var __validateComment = function() {
@@ -104,6 +91,13 @@ App.ModalShowNew=function(){
       } else {
           return true;
       }
+  }
+  
+  var __limpiarModal = function (){
+	  $("#comment-input").val("");
+      $("#name-input").val("");
+      $("#email-input").val("");
+      $("#div-comments-id").empty();
   }
  
      /**public**/

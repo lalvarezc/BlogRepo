@@ -17,17 +17,17 @@ public class NewsUnitTest {
 
     @Test
     public void checkIntance() throws Exception {
-        NewsImpl noticia;
-        noticia = new NewsImpl();
+        INewsRepository noticia;
+        noticia = new NewsRepositoryImpl();
         Assert.assertNotNull(noticia);
     }
 
     @Test
     public void createNew() throws Exception {
-        NewsImpl noticia = new NewsImpl();
+        INewsRepository noticia = new NewsRepositoryImpl();
 
         News miNoticiaAGuardar = new News();
-        miNoticiaAGuardar.setAuthor(new Author());
+        miNoticiaAGuardar.setAuthor(new Author("juanito","jau",2));
         miNoticiaAGuardar.setTitle("mi título");
         miNoticiaAGuardar.setContent("mis comentarios");
 
@@ -38,10 +38,10 @@ public class NewsUnitTest {
 
     @Test
     public void checkFields() throws Exception {
-        NewsImpl noticia = new NewsImpl();
+        INewsRepository noticia = new NewsRepositoryImpl();
 
         News miNoticiaAGuardar = new News();
-        miNoticiaAGuardar.setAuthor(new Author());
+       miNoticiaAGuardar.setAuthor(new Author("juanito","jau",2));
         miNoticiaAGuardar.setTitle("mi título");
         miNoticiaAGuardar.setContent("mis comentarios");
 
@@ -55,7 +55,7 @@ public class NewsUnitTest {
 
     @Test (expected = RuntimeException.class)
     public void checkCaminoInfeliz() throws Exception {
-        NewsImpl noticia = new NewsImpl();
+        INewsRepository noticia = new NewsRepositoryImpl();
 
         News miNoticiaAGuardar = new News();
         miNoticiaAGuardar.setTitle("mi título");
@@ -66,10 +66,10 @@ public class NewsUnitTest {
 
     @Test
     public void checkDelete() throws Exception {
-        NewsImpl listaDeNoticias = new NewsImpl();
+        INewsRepository listaDeNoticias = new NewsRepositoryImpl();
 
         News miNoticiaAGuardar = new News();
-        miNoticiaAGuardar.setAuthor(new Author());
+        miNoticiaAGuardar.setAuthor(new Author("juanito","jau",2));
         miNoticiaAGuardar.setTitle("mi título");
         miNoticiaAGuardar.setContent("mis comentarios");
 
@@ -82,10 +82,10 @@ public class NewsUnitTest {
 
     @Test (expected = RuntimeException.class)
     public void checkDelete2() throws Exception {
-        NewsImpl listaDeNoticias = new NewsImpl();
+        INewsRepository listaDeNoticias = new NewsRepositoryImpl();
 
         News miNoticiaAGuardar = new News();
-        miNoticiaAGuardar.setAuthor(new Author());
+        miNoticiaAGuardar.setAuthor(new Author("juanito","jau",2));
         miNoticiaAGuardar.setId(11232343);
         miNoticiaAGuardar.setTitle("mi título");
         miNoticiaAGuardar.setContent("mis comentarios");
@@ -97,10 +97,10 @@ public class NewsUnitTest {
 
     @Test
     public void checkRead() throws Exception {
-        NewsImpl listaDeNoticias = new NewsImpl();
+        INewsRepository listaDeNoticias = new NewsRepositoryImpl();
 
         News miNoticiaAGuardar = new News();
-        miNoticiaAGuardar.setAuthor(new Author());      
+        miNoticiaAGuardar.setAuthor(new Author("juanito","jau",2));
         miNoticiaAGuardar.setTitle("mi título");
         miNoticiaAGuardar.setContent("mis comentarios");
 
@@ -113,7 +113,7 @@ public class NewsUnitTest {
 
     @Test (expected = RuntimeException.class)
     public void checkRead2() throws Exception {
-        NewsImpl listaDeNoticias = new NewsImpl();
+        INewsRepository listaDeNoticias = new NewsRepositoryImpl();
 
         News miNoticiaAGuardar = new News();
         miNoticiaAGuardar.setAuthor(new Author());

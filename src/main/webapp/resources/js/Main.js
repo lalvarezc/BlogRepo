@@ -16,9 +16,7 @@ App.Main=function(){
    });
     
   };
-  
-  
-  
+
   var __ajax=function(url, method, data){
 	
 	  if(data!=null){
@@ -46,7 +44,7 @@ App.Main=function(){
 	  promise.then(function(response){		  
 		  console.info(response);
 		  
-		  for (var int = 0; int < response.length; int++) {
+		  for (var int = response.length-1; int >=0 ; int--) {
 			console.log(response[int].title);
 			
 			__renderizar(response[int]);

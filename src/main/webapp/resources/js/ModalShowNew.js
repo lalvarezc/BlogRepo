@@ -3,8 +3,9 @@ App.ModalShowNew=function(){
 	
 	var __init=function(){
 		
-		$(document).on("ModalCreateNew_message", function (evt) {
-			 console.info(evt);
+		$(document).on("ModalCreateNew_NewCreated", function () {
+			__limpiar();
+			 __readAll();
 	   });
 	
 	}

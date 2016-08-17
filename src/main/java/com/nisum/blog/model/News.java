@@ -14,6 +14,7 @@ public class News {
 	
 	public News(){ 
 		setComments(new ArrayList<Comment>());
+		setDate();
 		setTags(new ArrayList<String>());
 	}
 	
@@ -21,7 +22,7 @@ public class News {
 		setId(id);
 		setTitle(title);
 		setContent(content);
-		setDate(date);
+		setDate();
 		setAuthor(author);
 		setTags(new ArrayList<String>());
 		setComments(new ArrayList<Comment>());
@@ -58,7 +59,7 @@ public class News {
 		return date;
 	}
 
-	public void setDate(Date date) {
+	public void setDate() {
 		this.date = new Date();
 	}
 

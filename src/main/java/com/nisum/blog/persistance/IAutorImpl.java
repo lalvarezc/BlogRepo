@@ -116,9 +116,43 @@ public class IAutorImpl implements IAutor {
 	}
 
 	@Override
-	public void delete() {
-		// TODO Auto-generated method stub
-
+	public void delete(String id) {
+		try {
+			final BufferedReader reader = new BufferedReader(new FileReader("src/main/resources/authors.txt"));
+			String line = "";
+			File inFile = new File("src/main/resources/authors.txt"); 
+	        //Construct the new file that will later be renamed to the original filename.
+	        File tempFile = new File(inFile.getAbsolutePath() + ".tmp");
+	        PrintWriter pw = new PrintWriter(new FileWriter(tempFile));
+			while((line = reader.readLine())!= null) {
+				
+			    if(line.indexOf(";")!= -1){
+			        if (line.split(";")[0].equalsIgnoreCase(id)) {
+			            //System.out.println("se encontro el autor "+ id);
+			        	//Aca borro la linea
+				        pw.println(line);
+				        pw.flush();
+			        }
+			    }
+			}
+			pw.close();
+			reader.close();
+			//Delete the original file
+	        if (!inFile.delete()) {
+	            System.out.println("Could not delete file");
+	            return;
+	        }
+	 
+	        //Rename the new file to the filename the original file had.
+	        if (!tempFile.renameTo(inFile)){
+	            System.out.println("Could not rename file");
+	 
+	        }
+		}
+		catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
 	private Author buscarAutor(Author autor, String line, String valor){

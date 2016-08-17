@@ -5,7 +5,6 @@ main.init();
 main.createNews();
 
 var modalCrateNew= App.ModalCreateNew();
-//modalCrateNew.init();
 modalCrateNew.newPost();
 
 var modalShowNew=App.ModalShowNew();

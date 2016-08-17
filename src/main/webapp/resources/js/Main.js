@@ -9,6 +9,7 @@ App.Main=function(){
     console.info("starting...");
     $("#new_post_id").click(function(){
          $("#modal_create_post_id").modal('show');
+         document.getElementById("id_warning").className="bg-warning hide";
     });
 
     $("#btn_see_post_1_id").click(function(){

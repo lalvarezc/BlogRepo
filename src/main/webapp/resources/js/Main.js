@@ -9,12 +9,24 @@ App.Main=function(){
 	var __htmlNComments;
 	
   var __init=function(){
+
+    console.info("starting...");
+    $("#new_post_id").click(function(){
+         $("#modal_create_post_id").modal('show');
+         document.getElementById("id_warning").className="bg-warning hide";
+    });
+
+    $("#btn_see_post_1_id").click(function(){
+         $("#modal_see_post_id").modal('show');
+    });
+
 	__readAll();
 	$(document).on("ModalCreateNew_NewCreated", function () {
 		 __limpiar();
 		 __readAll();
    });
     
+
   };
 
   var __ajax=function(url, method, data){

@@ -3,7 +3,7 @@ var main= App.Main();
 main.init();
 
 var modalCrateNew= App.ModalCreateNew();
-modalCrateNew.init();
+modalCrateNew.newPost();
 
 var modalShowNew=App.ModalShowNew();
 modalShowNew.init();

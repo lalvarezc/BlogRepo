@@ -122,6 +122,8 @@ App.Main=function(){
     	__init();
     }
     
+    },
+
   };
 
 };

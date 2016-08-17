@@ -29,59 +29,46 @@
   	</div>
   	
   	
-  <!-- begin: modal  to  see a post-->
+   <!-- begin: modal  to  see a post-->
   <div id="modal_see_post_id" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
     <div class="modal-dialog modal-lg">
       <div class="modal-content container-fluid">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h3 class="modal-title">Title of the post</h3>
+          <h3 class="modal-title" id="post-title-id">
+                <!-- Post Title -->
+          </h3>
         </div>
-        <p class="lead" >
-          <h4 id="post_abstract_id">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus, vero, obcaecati, aut, error quam sapiente nemo saepe quibusdam sit excepturi.
-          </h4>
-        </p>
+        <p> by <span id="post-author-name"><b> </b></span>   |   <span class="glyphicon glyphicon-time"></span> Posted on <span id="post-pubdate"> </span></p>
         <hr></hr>
-        <p> by <b>Start Bootstrap</b>   |   <span class="glyphicon glyphicon-time"></span> Posted on August 24, 2013 at 9:00 PM</p>
-        <hr></hr>
-        <p id="post_body_id">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut, tenetur natus doloremque laborum quos iste ipsum rerum obcaecati impedit odit illo dolorum ab tempora nihil dicta earum fugiat. Temporibus, voluptatibus.
+        <p id="post-body-id">
+                <!-- Post Body -->
         </p>
         <hr></hr>
         <div class="well">
           <h4>Leave a Comment:</h4>
           <form class="form-horizontal" role="form">
-            <div class="form-group">
-              <textarea class="form-control" rows="3" placeholder="Your comment"></textarea>
+            <div class="form-group form-inline col-md-12">
+                 <input id="name-input" type="text" class="form-control col-md-12" placeholder="Your name" required="required" />
+                 <input id="email-input" type="text" class="form-control col-md-12" placeholder="Your e-mail" required="required"/>
+            </div>
+            <div class="form-group col-md-12">
+              <textarea id="comment-input" class="form-control" rows="3" placeholder="Your comment" required="required"></textarea>
             </div>
             <div class="form-group">
-              <input type="text" class="form-control " placeholder="Your name"/>
-            </div>
-            <div class="form-group">
-              <div class="col-sm-offset-2 col-sm-10">
+              <div class="col-md-offset-2 col-md-10">
                 <div class="pull-right">
-                  <button type="button" class="btn btn-blog ">Submit comment</button>
+                  <button id="submit-comment-btn" type="button" class="btn btn-blog ">Submit comment</button>
                 </div>
               </div>
             </div>
+            <div id="comment-alert" class="alert alert-warning hidden"><strong>Warning!</strong> Please, complete all of the fields.</div>
           </form>
         </div>
+        <h4>Comments:</h4>
         <hr></hr>
-        <div id="div_comments_id">
-
-          <div class="media">
-            <div class="media-body">
-              <h4 class="media-heading"><i class="glyphicon glyphicon-user"></i>Start Bootstrap
-                <small>August 25, 2014 at 9:30 PM</small>
-              </h4>
-              <p>
-                Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-              </p>
-            </div>
-          </div>
-          <hr></hr>
-
+        <div id="div-comments-id">
+ 
         </div>
       </div>
     </div>
@@ -145,6 +132,7 @@
   <script src="../../resources/js/Main.js" th:href="@{/resources/js/Main.js}"></script>
   <script src="../../resources/js/ModalCreateNew.js" th:href="@{/resources/js/ModalCreateNew.js}"></script>
   <script src="../../resources/js/ModalShowNew.js" th:href="@{/resources/js/ModalShowNew.js}"></script>
+  <script src="../../resources/js/LoadData.js" th:href="@{/resources/js/LoadData.js}"></script>
   <script src="../../resources/js/Run.js"  th:href="@{/resources/js/Run.js}"></script>
 
 </html>

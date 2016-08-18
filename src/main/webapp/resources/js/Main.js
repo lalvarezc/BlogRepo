@@ -26,7 +26,7 @@ App.Main=function(){
 		 __readAll();
    });
     
-	$(document).on("NewCommentAdded", function () {
+	$(document).on("ModalShowNew_NewComment", function () {
 		 __limpiar();
 		 __readAll();
   });

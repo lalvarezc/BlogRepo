@@ -10,6 +10,7 @@ App.ModalShowNew=function(){
              
             $("#submit-comment-btn").click(function(){
                 __addComment(evt.message);
+                __limpiarComments();
             });
         });
     }
@@ -101,10 +102,13 @@ App.ModalShowNew=function(){
   }
   
   var __limpiarModal = function (){
+      $("#div-comments-id").empty();
+  }
+  
+  var __limpiarComments = function() {
 	  $("#comment-input").val("");
       $("#name-input").val("");
       $("#email-input").val("");
-      $("#div-comments-id").empty();
   }
  
      /**public**/

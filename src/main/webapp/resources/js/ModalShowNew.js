@@ -48,7 +48,7 @@ App.ModalShowNew=function(){
               for (var i = 0; i < response.comments.length; i++) {
             	  var __htmlComment =
             		  '<div class="panel panel-default">' +
-            		  	'<div class="panel-heading">' + response.comments[i].userName + '</b> | ' + response.comments[i].userEmail + '</div>' + 
+            		  	'<div class="panel-heading"><b>' + response.comments[i].userName + '</b> | ' + response.comments[i].userEmail + '</div>' + 
             		  	'<div class="panel-body">' + response.comments[i].message + '</div> </div>';
             	  
                   $("#div-comments-id").append(__htmlComment);

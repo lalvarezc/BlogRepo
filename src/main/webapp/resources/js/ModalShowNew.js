@@ -10,7 +10,6 @@ App.ModalShowNew=function(){
              
             $("#submit-comment-btn").click(function(){
                 __addComment(evt.message);
-                __limpiarComments();
             });
         });
     }
@@ -78,7 +77,7 @@ App.ModalShowNew=function(){
         		  	'<div class="panel-body">' + response.message + '</div> </div>';
         	  
               $("#div-comments-id").append(__htmlComment);
-              
+              __limpiarComments();
     		  $.event.trigger({
     		      type: "ModalShowNew_NewComment",
     		      message: data,

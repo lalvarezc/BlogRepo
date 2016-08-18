@@ -26,7 +26,7 @@ public class Application {
        SpringApplication.run(Application.class, args);
 
     }
-    
+    /*
     @Bean
     public TemplateResolver templateResolver(){
         ServletContextTemplateResolver templateResolver = new ServletContextTemplateResolver();
@@ -49,7 +49,7 @@ public class Application {
 		resolver.setTemplateEngine(templateEngine());
 		return resolver;
 	}
-    
+    */
     
     /*
     @Bean       

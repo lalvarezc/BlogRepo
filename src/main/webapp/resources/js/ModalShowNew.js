@@ -71,8 +71,6 @@ App.ModalShowNew=function(){
           var promise = __ajax(url,"PUT", comment);
           promise.then(function(response){ 
               console.info(response);
-              alert("Comment published succesfully");
-              
         	  var __htmlComment =
         		  '<div class="panel panel-default">' +
         		  	'<div class="panel-heading"><b>' + response.userName + '</b> | ' + response.userEmail + '</div>' + 
@@ -81,7 +79,7 @@ App.ModalShowNew=function(){
               $("#div-comments-id").append(__htmlComment);
               
     		  $.event.trigger({
-    		      type: "NewCommentAdded",
+    		      type: "ModalShowNew_NewComment",
     		      message: data,
     		      time: new Date()
     		    });

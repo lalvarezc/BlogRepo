@@ -46,43 +46,52 @@ App.ModalShowNew=function(){
          
           if(response.comments.length > 0) {
               for (var i = 0; i < response.comments.length; i++) {
-                  $("#div-comments-id").append("<p>"+response.comments[i].userName +": <br>" + response.comments[i].message+"</p>");
+            	  var __htmlComment =
+            		  '<div class="panel panel-default">' +
+            		  	'<div class="panel-heading">' + response.comments[i].userName + '</b> | ' + response.comments[i].userEmail + '</div>' + 
+            		  	'<div class="panel-body">' + response.comments[i].message + '</div> </div>';
+            	  
+                  $("#div-comments-id").append(__htmlComment);
               }
           }
       });
   }
  
   var __addComment = function(data) {
-      if(__validateComment()) {
+	  
+	  var comment = {
+              message: $("#comment-input").val(),
+              userName: $("#name-input").val(),
+              userEmail: $("#email-input").val()
+      }
+	  
+      if(__validateComment(comment)) {
+    	  
           var url = "api/addComment/" + data;
-          var comment = {
-                  message: $("#comment-input").val(),
-                  userName: $("#name-input").val(),
-                  userEmail: $("#email-input").val()
-          }
-         
           var promise = __ajax(url,"PUT", comment);
           promise.then(function(response){ 
               console.info(response);
               alert("Comment published succesfully");
-              $("#div-comments-id").append("<p>"+response.userName +": <br>" + response.message+"</p>");
+              
+        	  var __htmlComment =
+        		  '<div class="panel panel-default">' +
+        		  	'<div class="panel-heading"><b>' + response.userName + '</b> | ' + response.userEmail + '</div>' + 
+        		  	'<div class="panel-body">' + response.message + '</div> </div>';
+        	  
+              $("#div-comments-id").append(__htmlComment);
               
     		  $.event.trigger({
     		      type: "NewCommentAdded",
     		      message: data,
     		      time: new Date()
     		    });
-          });
+          });   
       }
   }
  
-  var __validateComment = function() {
+  var __validateComment = function(comment) {
      
-      var message = $("#comment-input").val();
-      var userName = $("#name-input").val();
-      var userEmail = $("#email-input").val();
-     
-      if(message == "" || userName == "" || userEmail == "") {
+      if(comment.message == "" || comment.userName == "" || comment.userEmail == "") {
           $("#comment-alert").removeClass("hidden");
           $("#comment-alert").fadeTo(2000, 500).slideUp(500, function(){
               $("#comment-alert").slideUp(500);

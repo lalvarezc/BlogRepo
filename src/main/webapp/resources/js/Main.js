@@ -21,11 +21,15 @@ App.Main=function(){
     });
 
 	__readAll();
-	$(document).on("ModalCreateNew_NewCreated", function () {
+	$(document).on("ModalCreateNew_newCreated", function () {
 		 __limpiar();
 		 __readAll();
    });
     
+	$(document).on("NewCommentAdded", function () {
+		 __limpiar();
+		 __readAll();
+  });
 
   };
 
@@ -68,14 +72,14 @@ App.Main=function(){
 		 
   };
   
-  var __renderizar= function(response){
-	  __htmlTitle=response.title;
-		__htmlContent=response.content;
-		__htmlAuthor=response.author.name;
-		__htmlNComments=response.comments.length;
-		var d = new Date(response.date);
+  var __renderizar= function(array){
+	  __htmlTitle=array.title;
+		__htmlContent=array.content;
+		__htmlAuthor=array.author.name;
+		__htmlNComments=array.comments.length;
+		var d = new Date(array.date);
 		var htmlDate=d.toLocaleString();
-		var idBoton="btn_"+response.id+"_id";
+		var idBoton="btn_"+array.id+"_id";
 		var htmlNoticia='<div<div class="container">' +
 		  '<div class="col-md-10 blogShort">'+
 		    '<h1>'+__htmlTitle+'</h1>'+
@@ -101,7 +105,7 @@ App.Main=function(){
 		     '</div></div></div>';
 	  
 	  __dibujarListadoNews(htmlNoticia);
-	  __asignarEvento(idBoton,response.id);
+	  __asignarEvento(idBoton,array.id);
   };
   
   
